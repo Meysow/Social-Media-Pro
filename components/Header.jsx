@@ -65,15 +65,23 @@ const Header = () => {
         <HeaderLink Icon={AppsOutlinedIcon} text='Work' feed hidden />
 
         {/* Dark Mode Toggle */}
-        <div
-          className={`bg-gray-600 flex items-center px-0.5 rounded-full h-6 w-12 cursor-pointer flex-shrink-0 relative ${
-            resolvedTheme === 'dark' ? 'justify-end' : 'justify-start'
-          }`}
-          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-        >
-          {/* motion.div */}
-          <motion.div className='w-5 h-5 bg-white rounded-full z-40' layout transition={spring} />
-        </div>
+        {mounted ? (
+          <div
+            className={`bg-gray-600 flex items-center px-0.5 rounded-full h-6 w-12 cursor-pointer flex-shrink-0 relative ${
+              resolvedTheme === 'dark' ? 'justify-end' : 'justify-start'
+            }`}
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+          >
+            {/* motion.div */}
+            <motion.div className='w-5 h-5 bg-white rounded-full z-40' layout transition={spring} />
+          </div>
+        ) : (
+          <div
+            className={`bg-gray-600 px-0.5 rounded-full h-6 w-12 cursor-pointer flex-shrink-0 relative`}
+          >
+            {/* PlaceHolder*/}
+          </div>
+        )}
       </div>
     </header>
   );
