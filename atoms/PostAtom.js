@@ -1,5 +1,6 @@
 import { atom } from 'recoil';
 
+// Posts States //
 export const handlePostState = atom({
   key: 'handlePostState',
   default: false,
