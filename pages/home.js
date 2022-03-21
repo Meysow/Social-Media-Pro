@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Head from 'next/head';
-import { getProviders, signIn } from 'next-auth/react';
+import { getProviders, signIn, useSession } from 'next-auth/react';
 
 // Components //
 import HeaderLink from '../components/HeaderLink';
@@ -13,6 +13,8 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
 const Home = ({ providers }) => {
+  const { data: session } = useSession();
+
   return (
     <div className='space-y-10 relative'>
       <Head>
